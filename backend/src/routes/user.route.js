@@ -27,14 +27,6 @@ router.route("/logout").post(verifyJWT, logoutUser);
 router.route("/refresh").post(handleRefreshTokenAccess);
 router.route("/change-password").post(verifyJWT, changeCurrentPassword);
 router.route("/update-user").post(verifyJWT, updateAccountDetails);
-router.route("/update-avatar").post(
-    verifyJWT,
-    upload.single("avatar"),
-    updateUserAvatar
-);
-router.route("/update-cover").post(
-    verifyJWT,
-    upload.single("coverImage"),
-    updateUserCoverImage
-);
+router.route("/update-avatar").post(verifyJWT, upload.single("avatar"), updateUserAvatar);
+router.route("/update-cover").post(verifyJWT, upload.single("coverImage"), updateUserCoverImage);
 export default router
